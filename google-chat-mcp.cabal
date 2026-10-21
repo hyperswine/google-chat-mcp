@@ -1,0 +1,63 @@
+cabal-version: 3.0
+name:           google-chat-mcp
+version:        0.3.0
+synopsis:       A Haskell Google Chat client and a local MCP plugin for reading and sending messages
+description:    Please see the README on GitHub at <https://github.com/hyperswine/google-chat-mcp#readme>
+homepage:       https://github.com/hyperswine/google-chat-mcp#readme
+bug-reports:    https://github.com/hyperswine/google-chat-mcp/issues
+author:         Jasen Qin
+maintainer:     jasen.qin33@gmail.com
+copyright:      2025 Jasen Qin
+license:        GPL-3.0-only
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    app/google-chat/README.md
+    plugins/google-chat-readonly/README.md
+
+source-repository head
+  type: git
+  location: https://github.com/hyperswine/google-chat-mcp
+
+common warnings
+  ghc-options:
+    -Wall -Wcompat -Widentities -Wincomplete-record-updates
+    -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules
+    -Wpartial-fields -Wredundant-constraints
+  default-language: Haskell2010
+
+common google-chat-deps
+  import: warnings
+  build-depends:
+      base >=4.18 && <5, aeson, bytestring, text, directory, filepath,
+      http-client, http-client-tls, http-types, network, unix, time, process
+
+executable google-chat
+  import: google-chat-deps
+  main-is: Main.hs
+  hs-source-dirs: app/google-chat
+  other-modules: GoogleChat
+  ghc-options: -threaded
+
+executable google-chat-reader
+  import: google-chat-deps
+  main-is: ReaderMain.hs
+  hs-source-dirs: app/google-chat
+  other-modules: GoogleChat
+  ghc-options: -threaded
+
+executable google-chat-writer
+  import: google-chat-deps
+  main-is: WriterMain.hs
+  hs-source-dirs: app/google-chat
+  other-modules: GoogleChat
+  ghc-options: -threaded
+
+test-suite google-chat-test
+  import: google-chat-deps
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs: test/google-chat, app/google-chat
+  other-modules: GoogleChat
+  ghc-options: -threaded

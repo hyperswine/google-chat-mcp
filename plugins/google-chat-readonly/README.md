@@ -68,7 +68,7 @@ host has no shell PATH; `GOOGLE_CHAT_NODE` can specify an exact runtime.
 This repository includes `.agents/plugins/marketplace.json`.
 
 ```sh
-codex plugin marketplace add /absolute/path/to/HaskPlayground
+codex plugin marketplace add /absolute/path/to/google-chat-mcp
 codex plugin add google-chat-readonly@haskplayground-local --json
 codex plugin list --marketplace haskplayground-local --json
 ```
