@@ -1,3 +1,13 @@
+# Pull-only mode, version 0.3.1
+
+Background polling is disabled. The macOS event LaunchAgent has been stopped and
+its plist renamed with a .disabled suffix. The MCP server exposes only its five
+read/send tools and does not advertise events or register event subscription
+methods. Read Google Chat when requested; sending still requires user authorization.
+Historical event implementation and installation notes below are retained for
+reference, but do not apply to the current installed mode. Do not run
+install-events.mjs unless intentionally restoring background event support.
+
 # Google Chat
 
 A local desktop MCP plugin for the existing Haskell Google Chat client. It reads and sends authorized text messages

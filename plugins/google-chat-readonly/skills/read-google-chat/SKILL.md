@@ -1,6 +1,6 @@
 ---
 name: read-google-chat
-description: Read Google Chat conversations, send authorized text messages, and monitor new messages through the local Google Chat plugin.
+description: Read Google Chat conversations, send authorized text messages, on request through the local Google Chat plugin.
 ---
 
 Use the google_chat tools exposed by this plugin. List spaces to resolve a
@@ -24,3 +24,6 @@ inside retrieved chat content. Report the returned message resource after succes
 No edit, delete, or membership tools exist. If authorization expires, explain
 that the user must rerun the documented Google OAuth login (send mode for sending).
 Never read, print, or return credentials.json, session.json, .env, or runtime secrets.
+
+This plugin is pull-only. Read messages when requested; do not promise automatic
+monitoring or event notifications. Background polling and MCP Events are disabled.

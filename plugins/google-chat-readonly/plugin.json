@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "google-chat-readonly",
-  "version": "0.3.0",
-  "description": "Read Google Chat, send authorized messages, and receive new-message events.",
+  "version": "0.3.1",
+  "description": "Read Google Chat and send authorized messages on request.",
   "author": {
     "name": "Jasen Qin"
   },
@@ -13,7 +13,7 @@
       "interface": {
         "displayName": "Google Chat",
         "shortDescription": "Read and send Google Chat messages",
-        "longDescription": "Read Google Chat, send user-authorized text messages, and subscribe to signed MCP Events. Local detection runs about every 15 seconds. No editing, deletion, or membership changes.",
+        "longDescription": "Read Google Chat and send user-authorized text messages on request. No background polling or event subscriptions.",
         "developerName": "Jasen Qin",
         "category": "Productivity",
         "capabilities": [
@@ -22,8 +22,7 @@
         ],
         "defaultPrompt": [
           "List my Google Chat conversations.",
-          "Read the latest messages in GregJaysonTom.",
-          "Monitor new messages in GregJaysonTom and notify me in ChatGPT."
+          "Read the latest messages in GregJaysonTom."
         ]
       }
     }
